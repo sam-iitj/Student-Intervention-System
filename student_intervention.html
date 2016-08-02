@@ -12135,8 +12135,20 @@ Testing set has 95 samples.
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <p><strong>Decision Tree</strong> - Decision Tree is suitable model for this problem, since the data has lot of features which could be used to make if else statement from a decision tree classifier. One advantage of using decision tree, is its simplicity. We can simply extract the rules from the decision tree model and use them in however way may want to use them. The only problem we will need to handle carefully, is the problem of overfitting in decision tree.</p>
+<p><strong>Strengths</strong> - Decision tree can with non linearity in the data. They can handle irrelevant features appropriately via the method of information gain. It is fast to train and make predictions using decision trees.</p>
+<p><strong>Weakness</strong> - Decision trees can overfit, so we need to tune the parameters appropriately to get a better decision tree. Decision tree can be instable, in a way that they are very sensitive towards noise in the data.</p>
+<p><strong>Real world Examples</strong> - Decision trees can be used in many settings like medical science, where we may have many features and we may want to predict different outcomes depending on those features.</p>
+<p><strong>Decision Tree for current task</strong> - I have choosen decision tree for the current task, since the given data set contains many categorical features. Also it is the simplest classifier to try at first.</p>
 <p><strong>Support Vector Machines</strong> - Support vector machines are known to be very good for classification task using the maxmal margin approach. This classifier will give us the maximum margin boundary between the two sets of students. The only thing we need to choose carefully, is the choise of the kernel function, which maps the given input data to a higher dimension so that it can become linearly seperable.</p>
+<p><strong>Strengths</strong> - SVM is effective in high dimensional spaces. It uses only a subset of training points for the final decision function, which makes it very memory efficient algorithm. It has various choices of kernels, which we can use to find the best seperating hyperplane.</p>
+<p><strong>Weakness</strong> - SVM do not perform well when the number of features are much greater than the number of samples.</p>
+<p><strong>Real World Examples</strong> - SVM is frequenctly used in computer vision and robotics. One such application of svm is in image based retrieval.</p>
+<p><strong>SVM for current task</strong> - The number of dimensional are high(i.e. 30) . Also since the number of features are less than the number of samples. SVM are a good choice of testing on the current data set.</p>
 <p><strong>Ada Boost Classifier</strong> - Boosting is known to perform well from all the other machine learning models. Since, it depends on many "weak learners" which learn simple rules from the data. When these rules are used together via a voting strategy, the classifier is known to perform well among other classes of classifiers in machine learning. The only choice we need to make carefull, is choosing the right weak learner.</p>
+<p><strong>Strengths</strong> - Ada boost is very versitle since we can choose many base learners. We don't need any difficult parameters to set.</p>
+<p><strong>Weakness</strong> - The choice of weak learners should be made carefully. If weak learner is too complex, then the model will be suseptible to overfitting. Enough amount of data should be there to satisfy the base learner condition, base learning error should be better than random guess. Also the algorithm is suseptible to uniform noise in the data.</p>
+<p><strong>Real world Examples</strong> - A common use case for ada boost algorithm is in face detection. Where we can have many weak learners, which learn few details of a face. When all these learners are combines using boosting. We can use that to detect faces in images.</p>
+<p><strong>ADA Boost in current task</strong> - Ada boost builds many weak learners underneath to make the final model. Since, there could be many small patterns in the data which couldn't be captured via a single model. We can use an ensemble method to capture all the small details of the data and build a combined model.</p>
 
 </div>
 </div>
@@ -12547,8 +12559,18 @@ F1 score for test set: 0.7704.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://udacity-github-sync-content.s3.amazonaws.com/_imgs/8650/1461641606/data_2d_to_3d_hyperplane.png"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>I have choosen support vector machine as my final model. Since, it looks like it is generalizing well on the test data compared to all the other models i have considered. Support vector machine basically, tries to find a maximum margin classifier and finds supports vectors which maximize the margin. It then use those support vectors to classify the new data points.</p>
+<p>The final model i have choosen in support vector machine. Support vector machine work by taking a bunch of labelled students features(i.e - "age", "sex", "freetime") and there corresponding labels (i.e. "passed" or "failed"). It then projects these features of each student to higher dimension using kernel trick, such that a plane can seperate the students which are passed from the students who have failed. Similar, to the figure shown in the first plot the red pointc could denote the students who have failed and the green vice versa. Now, when a new student comes we collect it features, similar to the features used in the model building phase and we use the decision boundary to find where this new student lies with respect to the plane. If it lies in the above block of the plane, we can say that the student will fail. On the other hand, if he/she lies on the bottom part of the place. We can say that he/she will pass.</p>
 
 </div>
 </div>
